@@ -52,3 +52,4 @@ out
 gen
 !/tests/chinese.test.js
 !/tests/test.test.js
+/dist

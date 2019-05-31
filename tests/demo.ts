@@ -1,18 +1,18 @@
-import AhoCorasick from '..';
-import { array_unique } from 'array-hyper-unique';
-import equals = require('deep-eql');
+import AhoCorasick from "../src";
 
-var i, len, ref, word;
+let i;
+let len;
+let ref;
+let word;
 
-var ac = new AhoCorasick();
+const ac = new AhoCorasick();
 
-ref = ['say', 'she', 'shr', 'he', 'her', 'h', 'hers', 'his'];
+ref = ["say", "she", "shr", "he", "her", "h", "hers", "his"];
 
-for (i = 0, len = ref.length; i < len; i++)
-{
+for (i = 0, len = ref.length; i < len; i++) {
 	word = ref[i];
 	ac.add(word, {
-		word: word
+		word
 	});
 }
 
@@ -23,7 +23,7 @@ console.dir(ac, {
 	colors: true,
 });
 
-let actual = ac.search('yasherhs');
+const actual = ac.search("yasherhs");
 /*
 { matches: { h: [ 3, 6 ], she: [ 2 ], he: [ 3 ], her: [ 3 ] },
   positions: { '2': [ 'she' ], '3': [ 'h', 'he', 'her' ], '6': [ 'h' ] },
