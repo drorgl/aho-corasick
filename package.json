@@ -29,13 +29,13 @@
     "trie-structure",
     "words"
   ],
-  "homepage": "https://github.com/bluelovers/aho-corasick#readme",
+  "homepage": "https://github.com/drorgl/aho-corasick#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/aho-corasick/issues"
+    "url": "https://github.com/drorgl/aho-corasick/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/aho-corasick.git"
+    "url": "git+https://github.com/drorgl/aho-corasick.git"
   },
   "license": "ISC",
   "author": "Dejian Xu <xudejian2008@gmail.com> (https://github.com/xudejian/aho-corasick)",
