@@ -9,37 +9,32 @@ export class AhoCorasick<T = any> {
 	}
 
 	public build_fail(node?: FailTrie<T>) {
-		let _k;
-		let fail_node;
 		let i;
 		let j;
 		let ref;
-		let ref1;
-		let sub_node;
 		node = node || this.trie;
 		node.fail = null;
 		if (node.value) {
 			for (i = j = 1, ref = node.value.length; (1 <= ref ? j < ref : j > ref); i = 1 <= ref ? ++j : --j) {
-				fail_node = this.trie.explore_fail_link(node.value.substring(i));
+				const fail_node = this.trie.explore_fail_link(node.value.substring(i));
 				if (fail_node) {
 					node.fail = fail_node;
 					break;
 				}
 			}
 		}
-		ref1 = node.next;
-		for (_k of Object.keys(ref1)) {
-			sub_node = ref1[_k];
+		const ref1 = node.next;
+		for (const _k of Object.keys(ref1)) {
+			const sub_node = ref1[_k];
 			this.build_fail(sub_node);
 		}
 		return this;
 	}
 
 	public foreach_match(node: FailTrie<T>, pos: number, callback: IAhoCorasickCallback<T>) {
-		let offset: number;
 		while (node) {
 			if (node.is_word) {
-				offset = pos - node.value.length;
+				const offset = pos - node.value.length;
 				callback(node.value, node.data, offset, node);
 			}
 			node = node.fail;
@@ -105,13 +100,12 @@ export class AhoCorasick<T = any> {
 			};
 		}
 
-		let chr;
 		let idx;
 		let j;
 		let ref;
 		let current = this.trie;
 		for (idx = j = 0, ref = string.length; (0 <= ref ? j < ref : j > ref); idx = 0 <= ref ? ++j : --j) {
-			chr = string.charAt(idx);
+			const chr = string.charAt(idx);
 			while (current && !current.next[chr]) {
 				current = current.fail;
 			}
@@ -143,19 +137,15 @@ export class AhoCorasick<T = any> {
 			}
 		};
 		const link_cb = (from: FailTrie<T>, to: FailTrie<T>) => {
-			let k;
-			let to_label;
-			let to_opt;
-			let v;
-			to_label = last_chr(to.value);
-			to_opt = [`label = "${to_label}"`];
+			const to_label = last_chr(to.value);
+			const to_opt = [`label = "${to_label}"`];
 			if (to.is_word) {
 				const option: {[name: string]: string} = {
 					style: "filled",
 					color: "skyblue"
 				};
-				for (k of Object.keys(option)) {
-					v = option[k];
+				for (const k of Object.keys(option)) {
+					const v = option[k];
 					to_opt.push(`${k} = "${v}"`);
 				}
 			}
@@ -164,9 +154,8 @@ export class AhoCorasick<T = any> {
 			return fail_cb(from, to);
 		};
 		const fail_cb = (from: FailTrie<T>, to: FailTrie<T>) => {
-			let style;
 			[from, to] = [to, to.fail];
-			style = to ? "dashed" : "dotted";
+			const style = to ? "dashed" : "dotted";
 			return dot.push(`${v_(from)} -> ${v_(to)} [ style = "${style}" ];`);
 		};
 		this.trie.each_node(link_cb);

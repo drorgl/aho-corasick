@@ -9,10 +9,8 @@ export class Trie<T = any> {
 	// fail?: Trie = null;
 
 	public add(word: string, data?: T, original_word?: string): boolean {
-		let chr: string;
-		let node: Trie;
-		chr = word.charAt(0);
-		node = this.next[chr];
+		const chr = word.charAt(0);
+		let node = this.next[chr];
 		if (!node) {
 			node = this.next[chr] = new Trie();
 			if (original_word) {
@@ -30,14 +28,13 @@ export class Trie<T = any> {
 	}
 
 	public explore_fail_link(word: string) {
-		let chr;
 		let i;
 		let node: Trie<T>;
 		let _i;
 		let _ref;
 		node = this;
 		for (i = _i = 0, _ref = word.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
-			chr = word.charAt(i);
+			const chr = word.charAt(i);
 			node = node.next[chr];
 			if (!node) {
 				return null;
