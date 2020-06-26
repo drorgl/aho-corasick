@@ -6,7 +6,10 @@
         "dryrun",
         "failtrie",
         "gmail",
+        "junit",
+        "precommit",
         "skyblue",
+        "typedoc",
         "xudejian"
     ]
 }

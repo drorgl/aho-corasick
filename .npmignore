@@ -1,0 +1,9 @@
+/.vscode
+/docs
+/src
+/tests
+/.travis.yml
+/test-results.xml
+/drorgl-aho-corasick*.tgz
+/tslint.json
+/tsconfig.json

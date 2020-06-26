@@ -53,3 +53,9 @@ gen
 !/tests/chinese.test.js
 !/tests/test.test.js
 /dist
+
+drorgl-aho-corasick*.tgz
+test-results.xml
+/.nyc_output
+/coverage
+/docs/html
