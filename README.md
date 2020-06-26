@@ -1,10 +1,12 @@
 # aho-corasick2
 
-    aho-corasick2 - Aho–Corasick string matching algorithm
+@drorgl/aho-corasick2 - Aho–Corasick string matching algorithm
+
+Original Author is Dejian Xu <xudejian2008@gmail.com> (https://github.com/xudejian/aho-corasick)
 
 ## Installation
 
-	$ npm install aho-corasick2
+	$ npm install @drorgl/aho-corasick2
 
 ## 應用
 
@@ -15,9 +17,9 @@
 [API](src/ahocorasick.d.ts)
 
 ```ts
-import * as AhoCorasick from 'aho-corasick2';
-import AhoCorasick from 'aho-corasick2';
-import AhoCorasick = require('aho-corasick2');
+import * as AhoCorasick from '@drorgl/aho-corasick2';
+import AhoCorasick from '@drorgl/aho-corasick2';
+import AhoCorasick = require('@drorgl/aho-corasick2');
 ```
 * search
 
